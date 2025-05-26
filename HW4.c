@@ -67,4 +67,21 @@ int main(){
     }
     return 0;
 }
+void displayGrades(){
+    system("cls");
+    printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
+    for(int i=0; i<studentCount; i++){
+        // 錯誤：沒算平均，average值仍為預設 0
+        printf("%s\t%d\t%d\t%d\t%d\t%.1f\n",
+            students[i].name,
+            students[i].id,
+            students[i].math,
+            students[i].physics,
+            students[i].english,
+            students[i].average);
+    }
+    system("pause");
+    system("cls");
+}
+
 
