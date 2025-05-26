@@ -12,14 +12,40 @@ struct Student{
 };
 struct Student students[MAX];
 int studentCount=0;
-void enterGrades(){} 
+void enterGrades(){
+    system("cls");
+    printf("Enter number of students (5~10): ");
+    scanf("%d", &studentCount);
+    for(int i=0;i<studentCount;i++){
+        printf("Student %d name:",i+1);
+        scanf("%s", students[i].name);
+        printf("Student ID: ");
+        scanf("%d", &students[i].id);
+        printf("Math: ");
+        scanf("%d", &students[i].math);
+        printf("Physics: ");
+        scanf("%d", &students[i].physics);
+        printf("English: ");
+        scanf("%d", &students[i].english);
+}
+}
 void displayGrades(){}
 void searchGrades(){}
 void rankGrades(){}
 int main(){
     char choice;
-    for(int i=0;i<20;i++) printf("##########################\n");
-
+    int password,tries=0;
+    for(int i=0;i<20;i++)printf("##########################\n");
+    while(tries<3){
+        printf("Enter 4-digit password: ");
+        scanf("%d",&password);
+        if(password==2025) break;
+        tries++;
+        if(tries==3){
+            printf("Too many failed attempts. Exiting...\n");
+            return 0;
+        }
+    }
     while(1){
         printf("------------[Grade System]----------\n");
         printf("|  a. Enter student grades         |\n");
@@ -28,14 +54,14 @@ int main(){
         printf("|  d. Grade ranking                |\n");
         printf("|  e. Exit system                  |\n");
         printf("------------------------------------\n");
-        printf("Enter your choice:");
-        scanf("%c", &choice);
+        printf("Enter your choice: ");
+        scanf(" %c", &choice);
         switch(choice){
-            case 'a':enterGrades();break;
-            case 'b':displayGrades();break;
-            case 'c':searchGrades();break;
-            case 'd':rankGrades();break;
-            case 'e':return 0;
+            case 'a': enterGrades(); break;
+            case 'b': displayGrades(); break;
+            case 'c': searchGrades(); break;
+            case 'd': rankGrades(); break;
+            case 'e': return 0;
             default: printf("Invalid choice\n");
         }
     }
