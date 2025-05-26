@@ -67,21 +67,27 @@ int main(){
     }
     return 0;
 }
-void displayGrades(){
+void searchGrades(){
     system("cls");
-    printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
-    for(int i=0; i<studentCount; i++){
-        // 錯誤：沒算平均，average值仍為預設 0
-        printf("%s\t%d\t%d\t%d\t%d\t%.1f\n",
-            students[i].name,
-            students[i].id,
-            students[i].math,
-            students[i].physics,
-            students[i].english,
-            students[i].average);
+    char target[20];
+    int found = 0;
+    printf("Enter name to search: ");
+    scanf("%s",target);
+    for(int i=0;i<studentCount;i++){
+        if(strcmp(students[i].name,target)==0){
+            printf("Name\tID\tMath\tPhysics\tEnglish\tAverage\n");
+            printf("%s\t%d\t%d\t%d\t%d\t%.1f\n",
+                students[i].name,
+                students[i].id,
+                students[i].math,
+                students[i].physics,
+                students[i].english,
+                students[i].average);
+            found=1;
+            break;
+        }
     }
     system("pause");
     system("cls");
 }
-
 
